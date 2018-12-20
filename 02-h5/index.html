@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>H5页面旋转效果</title>
+  <link rel="stylesheet" href="../commom/reset.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <section class="menu">
+    <ul>
+      <li class="active">菜单一</li>
+      <li>菜单一</li>
+      <li>菜单一</li>
+      <li>菜单一</li>
+      <li>菜单一</li>
+    </ul>
+  </section>
+  <section class="content">
+    <button>+</button>
+  </section>
+</body>
+<script>
+  window.onload=function(){
+    var menu = document.querySelector('.menu')
+    var button = document.querySelector('button')
+    var content = document.querySelector('.content')
+    var liList = document.querySelectorAll('.menu li')
+    console.log(liList)
+    console.log(button)
+    liList.forEach((item, index) => {
+      item.addEventListener('click', function() {
+        liList.forEach(item => {
+          item.
+        })
+        menu.style.transform= 'scale(1.2)';
+        console.log(item);
+      })
+    })
+    button.addEventListener('click', function() {
+      content.style.transform= 'scale(.4)';
+    })
+  }
+  
+</script>
+</html>

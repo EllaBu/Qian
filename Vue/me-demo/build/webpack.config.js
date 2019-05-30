@@ -1,5 +1,6 @@
 // node内置的path模块，path模块提供了处理文件和目录路径的实用程序。
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   // 指定打包模式
   mode: 'development',
@@ -26,5 +27,10 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html')
+    })
+  ]
 }

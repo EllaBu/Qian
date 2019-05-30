@@ -2,6 +2,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
   // 指定打包模式
   mode: 'development',
@@ -21,12 +22,42 @@ module.exports = {
     port: 3000,
     contentBase: './dist'
   },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.runtime.esm.js'
+    },
+  },
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        use: [
+          {
+            loader: 'cache-loader'
+          },
+          {
+            loader: 'thread-loader'
+          },
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              },
+            }
+          }
+        ]
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
+          {
+            loader: 'cache-loader'
+          },
+          {
+            loader: 'thread-loader'
+          },
           {
             loader: 'babel-loader'
           }
@@ -90,6 +121,7 @@ module.exports = {
       template: path.resolve(__dirname, '../public/index.html')
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin()
   ]
 }

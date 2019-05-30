@@ -1,3 +1,6 @@
-console.log('hello webpack')
-let a = 1;
-console.log(a)
+import Vue from 'vue'
+import App from './App'
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app')

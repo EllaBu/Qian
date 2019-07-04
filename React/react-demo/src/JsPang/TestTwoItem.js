@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 class TestTwoItem extends Component {
 
@@ -19,5 +20,11 @@ class TestTwoItem extends Component {
     )
   }
 }
+
+TestTwoItem.propTypes = {
+  content: PropTypes.string
+}
+
+
 
 export default TestTwoItem

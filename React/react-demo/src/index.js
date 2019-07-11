@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TestTwo from './JsPang/TestTwo';
+import TestTwo from './Todo/TodoList';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<TestTwo />, document.getElementById('root'));

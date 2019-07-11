@@ -3,6 +3,7 @@ import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
 
 import store from '../srore'
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "../srore/actionTypes";
 
 class TodoList extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class TodoList extends Component {
       inputValue: e.target.value
     })*/
     const action = {
-      type: 'changeInput',
+      type: CHANGE_INPUT,
       value: e.target.value
     }
     store.dispatch(action)
@@ -48,14 +49,14 @@ class TodoList extends Component {
     /*this.setState({
       list: [...this.state.list, this.state.inputValue]
     })*/
-    const action = { type: 'addItem' }
+    const action = { type: ADD_ITEM }
     store.dispatch(action)
   }
 
   deleteItem (index) {
     console.log(index)
     const action = {
-      type: 'deleteItem',
+      type: DELETE_ITEM,
       index
     }
     store.dispatch(action)
